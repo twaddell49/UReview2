@@ -1,0 +1,23 @@
+%h2 Create New Game
+
+= form_tag games_path, :method => :post do
+
+	= label :game, :title, 'Title'
+	= text_field :game, :title
+
+	= label :game, :esrb, 'ESRB'
+	= select :game, :esrb, Game.all_esrb
+
+	= label :game, :release_date, 'Released On'
+	= date_select :game, :release_date
+
+	= label :game, :players, 'Players'
+	= text_field :game, :players
+
+	= label :game, :genre, 'Genre'
+	= text_field :game, :genre
+
+	= label :game, :console, 'Console'
+	= select :game, :console, Game.all_consoles
+
+	= submit_tag 'Save Changes'
